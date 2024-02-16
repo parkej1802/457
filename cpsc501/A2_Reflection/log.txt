@@ -1,0 +1,642 @@
+commit 73456e41beeb2cd35518468a6a1ab61a812cdaaf
+Author: parkej1802 <60753073+parkej1802@users.noreply.github.com>
+Date:   Fri Oct 20 18:26:12 2023 -0400
+
+    re
+
+diff --git a/Asst2TestDriver.java b/Asst2TestDriver.java
+index 41b03d7..d67f7c2 100644
+--- a/Asst2TestDriver.java
++++ b/Asst2TestDriver.java
+@@ -85,13 +85,13 @@ public class Asst2TestDriver
+ 			System.out.println("Loading object inspector: " + args[0]);
+ 			Asst2TestDriver driver = new Asst2TestDriver(args[0],rec);
+ 			driver.runTest( new ClassA() );
+-//			driver.runTest( new ClassA(12) );
+-//			driver.runTest( new ClassB() );
+-//			driver.runTest( new ClassD(32) );
+-//			driver.runTest( new ClassD() );
+-//			driver.runTest( new ClassB[12] );
+-//			driver.runTest( new ClassB[12][12] );	
+-//			driver.runTest( "Test String" );
++			driver.runTest( new ClassA(12) );
++			driver.runTest( new ClassB() );
++			driver.runTest( new ClassD(32) );
++			driver.runTest( new ClassD() );
++			driver.runTest( new ClassB[12] );
++			driver.runTest( new ClassB[12][12] );	
++			driver.runTest( "Test String" );
+ 		    }
+ 		catch(Exception e)
+ 		    {
+diff --git a/Inspector.java b/Inspector.java
+index 23b6eb1..fbb6269 100644
+--- a/Inspector.java
++++ b/Inspector.java
+@@ -1,8 +1,169 @@
+ import java.lang.reflect.*;
+-import java.util.*;
+-
+ 
+ public class Inspector {
+-
+ 	
+-}
+\ No newline at end of file
++	// false or true to do recursion
++    public void inspect(Object obj, boolean recursive) {
++        inspectClass(obj.getClass(), obj, recursive, 0);
++    }
++    // indentation by depth
++    public String Indent(int depth) {
++        StringBuilder indent = new StringBuilder();
++        for (int i = 0; i < depth; i++) {
++            indent.append("\t");
++        }
++        return indent.toString();
++    }
++    
++    // Inspect details of objects
++    public void inspectClass(Class<?> classObj, Object obj, boolean recursive, int depth) {
++        String indent = Indent(depth);
++        className(indent, classObj);
++        if (classObj.isArray()) {
++            Array(indent, obj);
++            return;
++        }
++        declaringClass(indent, classObj, depth);
++        superClass(indent, classObj, obj, recursive, depth);
++        interfaces(indent, classObj, obj, recursive, depth);
++        methods(indent, classObj, depth);
++        Constructors(indent, classObj, depth);
++        Fields(indent, classObj, obj, recursive, depth);
++    }
++
++    //printing name of class
++    public void className(String indent, Class<?> classObj) {
++        System.out.println(indent + classObj.getName());
++    }
++    
++    //prints array
++    public void Array(String indent, Object array) {
++        System.out.println(indent + getArray(array));
++    }
++
++    //declares class
++    public void declaringClass(String indent, Class<?> classObj, int depth) {
++        System.out.println(indent + "Declaring Class: " + classObj.getName());
++    }
++
++    //print superclass 
++    public void superClass(String indent, Class<?> classObj, Object obj, boolean recursive, int depth) {
++        Class<?> superClass = classObj.getSuperclass();
++        if (superClass != null) {
++            System.out.println(indent + "Immediate Superclass: " + superClass.getName());
++            inspectClass(superClass, obj, recursive, depth + 1);
++        }
++    }
++
++    //print interfaces
++    public void interfaces(String indent, Class<?> classObj, Object obj, boolean recursive, int depth) {
++        for (Class<?> interfaces : classObj.getInterfaces()) {
++            System.out.println(indent + "Interfaces: " + interfaces.getName());
++            inspectClass(interfaces, obj, recursive, depth + 1);
++        }
++    }
++    
++    //print methods
++    public void methods(String indent, Class<?> classObj, int depth) {
++        System.out.println(indent + "Methods: ");
++        for (Method method : classObj.getDeclaredMethods()) {
++            System.out.println(indent + getMethodData(method, depth));
++        }
++    }
++
++    //prints constructors
++    public void Constructors(String indent, Class<?> classObj, int depth) {
++        System.out.println(indent + "Constructors: ");
++        for (Constructor<?> constructor : classObj.getDeclaredConstructors()) {
++            System.out.println(indent + getConstructorData(constructor, depth));
++        }
++    }
++
++    //prints field
++    public void Fields(String indent, Class<?> classObj, Object obj, boolean recursive, int depth) {
++        System.out.println(indent + "Fields: ");
++        for (Field field : classObj.getDeclaredFields()) {
++            System.out.println(indent + getFieldData(obj, field, recursive, depth));
++        }
++    }
++    
++    //get data of method
++    public String getMethodData(Method method, int depth) {
++        StringBuilder info = new StringBuilder(Indent(depth));
++        info.append(Modifier.toString(method.getModifiers())).append(" ");
++        info.append(method.getReturnType().getName()).append(" ");
++        info.append(method.getName()).append("(");
++        info.append(joinClassNames(method.getParameterTypes())).append(")");
++
++        if (method.getExceptionTypes().length > 0) {
++            info.append("Throw ").append(joinClassNames(method.getExceptionTypes()));
++        }
++
++        return info.toString();
++    }
++
++    //get constructor data
++    public String getConstructorData(Constructor<?> constructor, int depth) {
++        StringBuilder info = new StringBuilder(Indent(depth));
++
++        info.append(Modifier.toString(constructor.getModifiers())).append(" ");
++        info.append(constructor.getName()).append("(");
++        info.append(joinClassNames(constructor.getParameterTypes())).append(")");
++
++        return info.toString();
++    }
++
++    //get field data
++    public String getFieldData(Object obj, Field field, boolean recursive, int depth) {
++        StringBuilder info = new StringBuilder(Indent(depth));
++        String valueStr = getValueString(obj, field, recursive, depth);
++
++        info.append(Modifier.toString(field.getModifiers())).append(" ");
++        info.append(field.getType().getName()).append(" ");
++        info.append(field.getName()).append(" = ");
++        info.append(valueStr);
++
++        return info.toString();
++    }
++
++    //get value of field, if field value object, do recursion
++    public String getValueString(Object obj, Field field, boolean recursive, int depth) {
++        try {
++            field.setAccessible(true);
++            Object value = field.get(obj);
++            if (value == null) return "null";
++            if (field.getType().isPrimitive()) return value.toString();
++            if (field.getType().isArray()) return getArray(value);
++            if (recursive) inspectClass(value.getClass(), value, true, depth + 1);
++            return value.toString();
++        } 
++        catch (IllegalAccessException e) {
++            return "IllegalAccess";
++        }
++    }
++
++    //get array data
++    public String getArray(Object array) {
++        int length = Array.getLength(array);
++        StringBuilder data = new StringBuilder("[Length: " + length + "] -> ");
++        for (int i = 0; i < length; i++) {
++            data.append(Array.get(array, i));
++            if (length > i) {
++                data.append(", ");
++            }
++        }
++        return data.toString();
++    }
++
++    //join class
++    public String joinClassNames(Class[] classes) {
++        StringBuilder result = new StringBuilder();
++        for (int i = 0; i < classes.length; i++) {
++            result.append(classes[i].getName());
++            if (i < classes.length - 1) {
++                result.append(", ");
++            }
++        }
++        return result.toString();
++    }
++}
+diff --git a/cpsc501a2/testing1.java b/cpsc501a2/testing1.java
+new file mode 100644
+index 0000000..6fc01d9
+--- /dev/null
++++ b/cpsc501a2/testing1.java
+@@ -0,0 +1,14 @@
++package cpsc501a2;
++
++import static org.junit.Assert.*;
++
++import org.junit.Test;
++
++public class testing1 {
++
++	@Test
++	public void test() {
++		fail("Not yet implemented");
++	}
++
++}
+
+commit bc1f27ff12e56d2d7b3b8e199d7e2f4e74c9bee3
+Author: parkej1802 <60753073+parkej1802@users.noreply.github.com>
+Date:   Fri Oct 20 04:39:34 2023 -0400
+
+    Initialize
+
+diff --git a/Asst2TestDriver.java b/Asst2TestDriver.java
+new file mode 100644
+index 0000000..41b03d7
+--- /dev/null
++++ b/Asst2TestDriver.java
+@@ -0,0 +1,107 @@
++/*==========================================================================
++File: Asst2TestDriver.java
++Purpose: Driver program that loads the objects inspector and runs the
++         tests. Verification of tests is done through the inspection
++         of the out from the object inspector loaded at run time.
++
++Location: University of Calgary, Alberta, Canada
++Created By: Jordan Kidney
++Created on:  Oct 23, 2005
++Last Updated: Oct 23, 2005
++========================================================================*/
++
++import java.lang.reflect.*;
++
++public class Asst2TestDriver
++{
++    
++    //-------------------------------------------------------------------
++    public Asst2TestDriver(String ObjInspectorName, boolean recursive)
++	throws Exception
++    {
++	this.recursive=recursive;
++	setObjectInspectorInfo(ObjInspectorName);
++    }
++    //--------------------------------------------------------------------
++    public void setObjectInspectorInfo(String ObjectInspectorName)
++	throws Exception
++    {
++	Class objInspectClass=null;
++	try
++	    {
++		objInspectClass = Class.forName(ObjectInspectorName);
++		ObjInspector = objInspectClass.newInstance();
++	    }
++	catch(Exception e) 
++	    {
++		throw new Exception("Unable create instance of your object inspector");
++	    }
++
++	// get reference to inspect method
++	try
++	    {
++		Class[] param = { Object.class, boolean.class };
++		inspectionMethod = objInspectClass.getDeclaredMethod("inspect",param);
++	    }
++	catch(Exception e) 
++	    {
++		throw new Exception("Unable to find required method: public void inspect(Object obj,boolean recursive)");
++	    }
++    }
++    //--------------------------------------------------------------------
++    public void runTest(Object testObj) throws Exception
++    {
++	try
++	    {
++		System.out.println("======================================================");
++		System.out.println("Running Test: " + testObj);
++		Object[] param = { testObj, new Boolean(recursive) };
++		inspectionMethod.invoke(ObjInspector, param); 
++		System.out.println("======================================================");
++	    }
++	catch(Exception e)
++	    {
++		
++		e.printStackTrace();
++		throw new Exception("unable to compleatly run test");
++	    
++	    }
++    }
++    //------- Fields -----------------------------------------------------
++    private Object ObjInspector = null;
++    private Method inspectionMethod =null;
++    private boolean recursive=false;
++    //====================== MAIN =======================================
++    public static void main(String[] args)
++    {
++	boolean rec=true;
++
++	if(args.length >= 1)
++	    {
++		if(args.length > 1) rec = Boolean.parseBoolean(args[1]); // Bug fixed
++
++		try
++		    {
++			System.out.println("Loading object inspector: " + args[0]);
++			Asst2TestDriver driver = new Asst2TestDriver(args[0],rec);
++			driver.runTest( new ClassA() );
++//			driver.runTest( new ClassA(12) );
++//			driver.runTest( new ClassB() );
++//			driver.runTest( new ClassD(32) );
++//			driver.runTest( new ClassD() );
++//			driver.runTest( new ClassB[12] );
++//			driver.runTest( new ClassB[12][12] );	
++//			driver.runTest( "Test String" );
++		    }
++		catch(Exception e)
++		    {
++			
++			System.out.println("ERROR: " + e.getMessage());
++			System.out.println("Exiting test driver");
++		    }
++	    }
++	else
++	    System.out.println("usage: java Asst2TestDriver <object inspector name> [false]\n\nFirst argument is the name of the object inspector class to load, this class should be in the current directory. the second argument is optional, if set to false the recursive introspection will not be run for the tests.\n\n");
++
++    }
++}
+diff --git a/ClassA.java b/ClassA.java
+new file mode 100644
+index 0000000..1e06227
+--- /dev/null
++++ b/ClassA.java
+@@ -0,0 +1,29 @@
++public final class ClassA implements java.io.Serializable, Runnable
++{
++    public ClassA() { val=3; }
++
++    public ClassA(int i) 
++	{
++
++	    try { setVal(i); } catch(Exception e){}
++	}
++
++    public void run() { }
++
++    public int getVal(){ return val; }
++    public void setVal(int i) throws Exception
++	{
++	    if ( i < 0 ) 
++		throw new Exception("negative value");
++
++	    val = i;
++	}
++
++    public String toString() { return "ClassA"; }
++
++    private void printSomething() { System.out.println("Something"); }
++
++    private int val=3;
++    private double val2 = 0.2;
++    private boolean val3 = true;
++}
+diff --git a/ClassB.java b/ClassB.java
+new file mode 100644
+index 0000000..bcdc711
+--- /dev/null
++++ b/ClassB.java
+@@ -0,0 +1,20 @@
++public class ClassB extends ClassC implements Runnable
++{
++    public ClassB() throws Exception
++    {
++	super(2,3);
++    }
++
++    public void run() { }
++
++    public String toString() { return "ClassB"; }
++
++    public void func3(int a)
++    {
++
++    }
++
++    private ClassA val = new ClassA();
++    private ClassA val2 = new ClassA(12);
++    private ClassA val3;
++}
+diff --git a/ClassC.java b/ClassC.java
+new file mode 100644
+index 0000000..9ca0a3b
+--- /dev/null
++++ b/ClassC.java
+@@ -0,0 +1,29 @@
++public abstract class ClassC extends ClassD implements InterfaceA
++{
++
++    public ClassC(){ }
++    public ClassC(int a,int b){ val3= new ClassA(a); val4 = new ClassA(b); }
++
++    public void run() { }
++
++    public String toString() { return "ClassC"; }
++
++    public void func0(int a,boolean c) throws Exception {}
++
++    public void func1(int a,double b,boolean c, String s) throws Exception
++    {
++    }
++    
++    public int func2(String s)throws Exception, ArithmeticException , IllegalMonitorStateException 
++    {
++	return 1;
++    }
++
++   
++    public abstract void func3(int a);
++
++
++    private ClassA val2 = new ClassA(100);
++    private ClassA val3;
++    private ClassA val4;
++}
+diff --git a/ClassD.java b/ClassD.java
+new file mode 100644
+index 0000000..032f611
+--- /dev/null
++++ b/ClassD.java
+@@ -0,0 +1,14 @@
++public class ClassD
++{
++    public ClassD() {}
++    public ClassD(int i) { val3=i; }
++
++    public String toString() { return "ClassD"; }
++    
++    public int getVal3() { return val3; }
++
++    private ClassA val = new ClassA(17);
++    private static ClassA val2;
++    private int val3=34;
++    private ClassA[] vallarray = new ClassA[10];
++}
+diff --git a/Inspector.java b/Inspector.java
+new file mode 100644
+index 0000000..23b6eb1
+--- /dev/null
++++ b/Inspector.java
+@@ -0,0 +1,8 @@
++import java.lang.reflect.*;
++import java.util.*;
++
++
++public class Inspector {
++
++	
++}
+\ No newline at end of file
+diff --git a/InterfaceA.java b/InterfaceA.java
+new file mode 100644
+index 0000000..a3a9381
+--- /dev/null
++++ b/InterfaceA.java
+@@ -0,0 +1,7 @@
++public interface InterfaceA extends InterfaceB
++{
++   
++    public void func1(int a,double b,boolean c, String s) throws Exception;
++    public int func2(String s)throws Exception, ArithmeticException , IllegalMonitorStateException ;
++
++}
+diff --git a/InterfaceB.java b/InterfaceB.java
+new file mode 100644
+index 0000000..ed988c0
+--- /dev/null
++++ b/InterfaceB.java
+@@ -0,0 +1,7 @@
++
++public interface InterfaceB
++{
++
++    public void func0(int a,boolean c) throws Exception;
++
++}
+diff --git a/ObjectInspector.java b/ObjectInspector.java
+new file mode 100644
+index 0000000..2905e0b
+--- /dev/null
++++ b/ObjectInspector.java
+@@ -0,0 +1,90 @@
++/*==========================================================================
++File: ObjectInspector.java
++Purpose:Demo Object inspector for the Asst2TestDriver
++
++Location: University of Calgary, Alberta, Canada
++Created By: Jordan Kidney
++Created on:  Oct 23, 2005
++Last Updated: Oct 23, 2005
++
++***********************************************************************
++If you are going to reproduce this code in any way for your asignment 
++rember to include my name at the top of the file toindicate where you
++got the original code from
++***********************************************************************
++
++
++========================================================================*/
++
++import java.util.*;
++import java.lang.reflect.*;
++
++
++public class ObjectInspector
++{
++    public ObjectInspector() { }
++
++    //-----------------------------------------------------------
++    public void inspect(Object obj, boolean recursive)
++    {
++	Vector objectsToInspect = new Vector();
++	Class ObjClass = obj.getClass();
++
++	System.out.println("inside inspector: " + obj + " (recursive = "+recursive+")");
++	
++	//inspect the current class
++	inspectFields(obj, ObjClass,objectsToInspect);
++	
++	if(recursive)
++	    inspectFieldClasses( obj, ObjClass, objectsToInspect, recursive);
++	   
++    }
++    //-----------------------------------------------------------
++    private void inspectFieldClasses(Object obj,Class ObjClass,
++				     Vector objectsToInspect,boolean recursive)
++    {
++	
++	if(objectsToInspect.size() > 0 )
++	    System.out.println("---- Inspecting Field Classes ----");
++	
++	Enumeration e = objectsToInspect.elements();
++	while(e.hasMoreElements())
++	    {
++		Field f = (Field) e.nextElement();
++		System.out.println("Inspecting Field: " + f.getName() );
++		
++		try
++		    {
++			System.out.println("******************");
++			inspect( f.get(obj) , recursive);
++			System.out.println("******************");
++		    }
++		catch(Exception exp) { exp.printStackTrace(); }
++	    }
++    }
++    //-----------------------------------------------------------
++    private void inspectFields(Object obj,Class ObjClass,Vector objectsToInspect)
++  
++    {
++	
++	if(ObjClass.getDeclaredFields().length >= 1)
++	    {
++		Field f = ObjClass.getDeclaredFields()[0];
++		
++		f.setAccessible(true);
++		
++		if(! f.getType().isPrimitive() ) 
++		    objectsToInspect.addElement( f );
++		
++		try
++		    {
++			
++			System.out.println("Field: " + f.getName() + " = " + f.get(obj));
++		    }
++		catch(Exception e) {}    
++	    }
++
++	if(ObjClass.getSuperclass() != null)
++	    inspectFields(obj, ObjClass.getSuperclass() , objectsToInspect);
++    }
++}
+diff --git a/README b/README
+new file mode 100644
+index 0000000..14c58a9
+--- /dev/null
++++ b/README
+@@ -0,0 +1,33 @@
++Files
++-------
++
++ Asst2TestDriver.java - Assignment 2 test Driver
++ ObjectInspector.java - example/simple object inspector
++
++  ClassA.java - classes/Interfaces used to test the inspector
++  ClassB.java
++  ClassC.java
++  ClassD.java
++  InterfaceA.java
++  InterfaceB.java
++
++Running the tester
++-------------------
++
++(1)make sure that your object inspector is in the current directory
++   with the Test driver you have properly set up your CLASSPATH
++   properly.
++
++(2) in the directory you have the Test Driver and all testing
++    classes in type:
++
++    java Asst2TestDriver ( name / full path to your Object inspector)
++ 
++
++(eg)  java Asst2TestDriver  ObjectInspector
++
++You can veryify the ouput by checking back to the structure of the
++test classes to make sure they are correct.
++
++
++

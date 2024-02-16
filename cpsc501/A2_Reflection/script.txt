@@ -1,0 +1,898 @@
+Loading object inspector: Inspector
+======================================================
+Running Test: ClassA
+ClassA
+Declaring Class: ClassA
+Immediate Superclass: java.lang.Object
+	java.lang.Object
+	Declaring Class: java.lang.Object
+	Methods: 
+		protected void finalize()Throw java.lang.Throwable
+		public final void wait(long, int)Throw java.lang.InterruptedException
+		public final void wait()Throw java.lang.InterruptedException
+		public final native void wait(long)Throw java.lang.InterruptedException
+		public boolean equals(java.lang.Object)
+		public java.lang.String toString()
+		public native int hashCode()
+		public final native java.lang.Class getClass()
+		protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+		public final native void notify()
+		public final native void notifyAll()
+	Constructors: 
+		public java.lang.Object()
+	Fields: 
+Interfaces: java.io.Serializable
+	java.io.Serializable
+	Declaring Class: java.io.Serializable
+	Methods: 
+	Constructors: 
+	Fields: 
+Interfaces: java.lang.Runnable
+	java.lang.Runnable
+	Declaring Class: java.lang.Runnable
+	Methods: 
+		public abstract void run()
+	Constructors: 
+	Fields: 
+Methods: 
+public void setVal(int)Throw java.lang.Exception
+public int getVal()
+private void printSomething()
+public void run()
+public java.lang.String toString()
+Constructors: 
+public ClassA()
+public ClassA(int)
+Fields: 
+private int val = 3
+private double val2 = 0.2
+private boolean val3 = true
+======================================================
+======================================================
+Running Test: ClassA
+ClassA
+Declaring Class: ClassA
+Immediate Superclass: java.lang.Object
+	java.lang.Object
+	Declaring Class: java.lang.Object
+	Methods: 
+		protected void finalize()Throw java.lang.Throwable
+		public final void wait(long, int)Throw java.lang.InterruptedException
+		public final void wait()Throw java.lang.InterruptedException
+		public final native void wait(long)Throw java.lang.InterruptedException
+		public boolean equals(java.lang.Object)
+		public java.lang.String toString()
+		public native int hashCode()
+		public final native java.lang.Class getClass()
+		protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+		public final native void notify()
+		public final native void notifyAll()
+	Constructors: 
+		public java.lang.Object()
+	Fields: 
+Interfaces: java.io.Serializable
+	java.io.Serializable
+	Declaring Class: java.io.Serializable
+	Methods: 
+	Constructors: 
+	Fields: 
+Interfaces: java.lang.Runnable
+	java.lang.Runnable
+	Declaring Class: java.lang.Runnable
+	Methods: 
+		public abstract void run()
+	Constructors: 
+	Fields: 
+Methods: 
+public void setVal(int)Throw java.lang.Exception
+public int getVal()
+private void printSomething()
+public void run()
+public java.lang.String toString()
+Constructors: 
+public ClassA()
+public ClassA(int)
+Fields: 
+private int val = 12
+private double val2 = 0.2
+private boolean val3 = true
+======================================================
+======================================================
+Running Test: ClassB
+ClassB
+Declaring Class: ClassB
+Immediate Superclass: ClassC
+	ClassC
+	Declaring Class: ClassC
+	Immediate Superclass: ClassD
+		ClassD
+		Declaring Class: ClassD
+		Immediate Superclass: java.lang.Object
+			java.lang.Object
+			Declaring Class: java.lang.Object
+			Methods: 
+						protected void finalize()Throw java.lang.Throwable
+						public final void wait(long, int)Throw java.lang.InterruptedException
+						public final void wait()Throw java.lang.InterruptedException
+						public final native void wait(long)Throw java.lang.InterruptedException
+						public boolean equals(java.lang.Object)
+						public java.lang.String toString()
+						public native int hashCode()
+						public final native java.lang.Class getClass()
+						protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+						public final native void notify()
+						public final native void notifyAll()
+			Constructors: 
+						public java.lang.Object()
+			Fields: 
+		Methods: 
+				public int getVal3()
+				public java.lang.String toString()
+		Constructors: 
+				public ClassD()
+				public ClassD(int)
+		Fields: 
+			ClassA
+			Declaring Class: ClassA
+			Immediate Superclass: java.lang.Object
+				java.lang.Object
+				Declaring Class: java.lang.Object
+				Methods: 
+								protected void finalize()Throw java.lang.Throwable
+								public final void wait(long, int)Throw java.lang.InterruptedException
+								public final void wait()Throw java.lang.InterruptedException
+								public final native void wait(long)Throw java.lang.InterruptedException
+								public boolean equals(java.lang.Object)
+								public java.lang.String toString()
+								public native int hashCode()
+								public final native java.lang.Class getClass()
+								protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+								public final native void notify()
+								public final native void notifyAll()
+				Constructors: 
+								public java.lang.Object()
+				Fields: 
+			Interfaces: java.io.Serializable
+				java.io.Serializable
+				Declaring Class: java.io.Serializable
+				Methods: 
+				Constructors: 
+				Fields: 
+			Interfaces: java.lang.Runnable
+				java.lang.Runnable
+				Declaring Class: java.lang.Runnable
+				Methods: 
+								public abstract void run()
+				Constructors: 
+				Fields: 
+			Methods: 
+						public void setVal(int)Throw java.lang.Exception
+						public int getVal()
+						private void printSomething()
+						public void run()
+						public java.lang.String toString()
+			Constructors: 
+						public ClassA()
+						public ClassA(int)
+			Fields: 
+						private int val = 17
+						private double val2 = 0.2
+						private boolean val3 = true
+				private ClassA val = ClassA
+				private static ClassA val2 = null
+				private int val3 = 34
+				private [LClassA; vallarray = [Length: 10] -> null, null, null, null, null, null, null, null, null, null, 
+	Interfaces: InterfaceA
+		InterfaceA
+		Declaring Class: InterfaceA
+		Interfaces: InterfaceB
+			InterfaceB
+			Declaring Class: InterfaceB
+			Methods: 
+						public abstract void func0(int, boolean)Throw java.lang.Exception
+			Constructors: 
+			Fields: 
+		Methods: 
+				public abstract void func1(int, double, boolean, java.lang.String)Throw java.lang.Exception
+				public abstract int func2(java.lang.String)Throw java.lang.Exception, java.lang.ArithmeticException, java.lang.IllegalMonitorStateException
+		Constructors: 
+		Fields: 
+	Methods: 
+		public abstract void func3(int)
+		public void func0(int, boolean)Throw java.lang.Exception
+		public void func1(int, double, boolean, java.lang.String)Throw java.lang.Exception
+		public int func2(java.lang.String)Throw java.lang.Exception, java.lang.ArithmeticException, java.lang.IllegalMonitorStateException
+		public void run()
+		public java.lang.String toString()
+	Constructors: 
+		public ClassC()
+		public ClassC(int, int)
+	Fields: 
+		ClassA
+		Declaring Class: ClassA
+		Immediate Superclass: java.lang.Object
+			java.lang.Object
+			Declaring Class: java.lang.Object
+			Methods: 
+						protected void finalize()Throw java.lang.Throwable
+						public final void wait(long, int)Throw java.lang.InterruptedException
+						public final void wait()Throw java.lang.InterruptedException
+						public final native void wait(long)Throw java.lang.InterruptedException
+						public boolean equals(java.lang.Object)
+						public java.lang.String toString()
+						public native int hashCode()
+						public final native java.lang.Class getClass()
+						protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+						public final native void notify()
+						public final native void notifyAll()
+			Constructors: 
+						public java.lang.Object()
+			Fields: 
+		Interfaces: java.io.Serializable
+			java.io.Serializable
+			Declaring Class: java.io.Serializable
+			Methods: 
+			Constructors: 
+			Fields: 
+		Interfaces: java.lang.Runnable
+			java.lang.Runnable
+			Declaring Class: java.lang.Runnable
+			Methods: 
+						public abstract void run()
+			Constructors: 
+			Fields: 
+		Methods: 
+				public void setVal(int)Throw java.lang.Exception
+				public int getVal()
+				private void printSomething()
+				public void run()
+				public java.lang.String toString()
+		Constructors: 
+				public ClassA()
+				public ClassA(int)
+		Fields: 
+				private int val = 100
+				private double val2 = 0.2
+				private boolean val3 = true
+		private ClassA val2 = ClassA
+		ClassA
+		Declaring Class: ClassA
+		Immediate Superclass: java.lang.Object
+			java.lang.Object
+			Declaring Class: java.lang.Object
+			Methods: 
+						protected void finalize()Throw java.lang.Throwable
+						public final void wait(long, int)Throw java.lang.InterruptedException
+						public final void wait()Throw java.lang.InterruptedException
+						public final native void wait(long)Throw java.lang.InterruptedException
+						public boolean equals(java.lang.Object)
+						public java.lang.String toString()
+						public native int hashCode()
+						public final native java.lang.Class getClass()
+						protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+						public final native void notify()
+						public final native void notifyAll()
+			Constructors: 
+						public java.lang.Object()
+			Fields: 
+		Interfaces: java.io.Serializable
+			java.io.Serializable
+			Declaring Class: java.io.Serializable
+			Methods: 
+			Constructors: 
+			Fields: 
+		Interfaces: java.lang.Runnable
+			java.lang.Runnable
+			Declaring Class: java.lang.Runnable
+			Methods: 
+						public abstract void run()
+			Constructors: 
+			Fields: 
+		Methods: 
+				public void setVal(int)Throw java.lang.Exception
+				public int getVal()
+				private void printSomething()
+				public void run()
+				public java.lang.String toString()
+		Constructors: 
+				public ClassA()
+				public ClassA(int)
+		Fields: 
+				private int val = 2
+				private double val2 = 0.2
+				private boolean val3 = true
+		private ClassA val3 = ClassA
+		ClassA
+		Declaring Class: ClassA
+		Immediate Superclass: java.lang.Object
+			java.lang.Object
+			Declaring Class: java.lang.Object
+			Methods: 
+						protected void finalize()Throw java.lang.Throwable
+						public final void wait(long, int)Throw java.lang.InterruptedException
+						public final void wait()Throw java.lang.InterruptedException
+						public final native void wait(long)Throw java.lang.InterruptedException
+						public boolean equals(java.lang.Object)
+						public java.lang.String toString()
+						public native int hashCode()
+						public final native java.lang.Class getClass()
+						protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+						public final native void notify()
+						public final native void notifyAll()
+			Constructors: 
+						public java.lang.Object()
+			Fields: 
+		Interfaces: java.io.Serializable
+			java.io.Serializable
+			Declaring Class: java.io.Serializable
+			Methods: 
+			Constructors: 
+			Fields: 
+		Interfaces: java.lang.Runnable
+			java.lang.Runnable
+			Declaring Class: java.lang.Runnable
+			Methods: 
+						public abstract void run()
+			Constructors: 
+			Fields: 
+		Methods: 
+				public void setVal(int)Throw java.lang.Exception
+				public int getVal()
+				private void printSomething()
+				public void run()
+				public java.lang.String toString()
+		Constructors: 
+				public ClassA()
+				public ClassA(int)
+		Fields: 
+				private int val = 3
+				private double val2 = 0.2
+				private boolean val3 = true
+		private ClassA val4 = ClassA
+Interfaces: java.lang.Runnable
+	java.lang.Runnable
+	Declaring Class: java.lang.Runnable
+	Methods: 
+		public abstract void run()
+	Constructors: 
+	Fields: 
+Methods: 
+public void func3(int)
+public void run()
+public java.lang.String toString()
+Constructors: 
+public ClassB()
+Fields: 
+	ClassA
+	Declaring Class: ClassA
+	Immediate Superclass: java.lang.Object
+		java.lang.Object
+		Declaring Class: java.lang.Object
+		Methods: 
+				protected void finalize()Throw java.lang.Throwable
+				public final void wait(long, int)Throw java.lang.InterruptedException
+				public final void wait()Throw java.lang.InterruptedException
+				public final native void wait(long)Throw java.lang.InterruptedException
+				public boolean equals(java.lang.Object)
+				public java.lang.String toString()
+				public native int hashCode()
+				public final native java.lang.Class getClass()
+				protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+				public final native void notify()
+				public final native void notifyAll()
+		Constructors: 
+				public java.lang.Object()
+		Fields: 
+	Interfaces: java.io.Serializable
+		java.io.Serializable
+		Declaring Class: java.io.Serializable
+		Methods: 
+		Constructors: 
+		Fields: 
+	Interfaces: java.lang.Runnable
+		java.lang.Runnable
+		Declaring Class: java.lang.Runnable
+		Methods: 
+				public abstract void run()
+		Constructors: 
+		Fields: 
+	Methods: 
+		public void setVal(int)Throw java.lang.Exception
+		public int getVal()
+		private void printSomething()
+		public void run()
+		public java.lang.String toString()
+	Constructors: 
+		public ClassA()
+		public ClassA(int)
+	Fields: 
+		private int val = 3
+		private double val2 = 0.2
+		private boolean val3 = true
+private ClassA val = ClassA
+	ClassA
+	Declaring Class: ClassA
+	Immediate Superclass: java.lang.Object
+		java.lang.Object
+		Declaring Class: java.lang.Object
+		Methods: 
+				protected void finalize()Throw java.lang.Throwable
+				public final void wait(long, int)Throw java.lang.InterruptedException
+				public final void wait()Throw java.lang.InterruptedException
+				public final native void wait(long)Throw java.lang.InterruptedException
+				public boolean equals(java.lang.Object)
+				public java.lang.String toString()
+				public native int hashCode()
+				public final native java.lang.Class getClass()
+				protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+				public final native void notify()
+				public final native void notifyAll()
+		Constructors: 
+				public java.lang.Object()
+		Fields: 
+	Interfaces: java.io.Serializable
+		java.io.Serializable
+		Declaring Class: java.io.Serializable
+		Methods: 
+		Constructors: 
+		Fields: 
+	Interfaces: java.lang.Runnable
+		java.lang.Runnable
+		Declaring Class: java.lang.Runnable
+		Methods: 
+				public abstract void run()
+		Constructors: 
+		Fields: 
+	Methods: 
+		public void setVal(int)Throw java.lang.Exception
+		public int getVal()
+		private void printSomething()
+		public void run()
+		public java.lang.String toString()
+	Constructors: 
+		public ClassA()
+		public ClassA(int)
+	Fields: 
+		private int val = 12
+		private double val2 = 0.2
+		private boolean val3 = true
+private ClassA val2 = ClassA
+private ClassA val3 = null
+======================================================
+======================================================
+Running Test: ClassD
+ClassD
+Declaring Class: ClassD
+Immediate Superclass: java.lang.Object
+	java.lang.Object
+	Declaring Class: java.lang.Object
+	Methods: 
+		protected void finalize()Throw java.lang.Throwable
+		public final void wait(long, int)Throw java.lang.InterruptedException
+		public final void wait()Throw java.lang.InterruptedException
+		public final native void wait(long)Throw java.lang.InterruptedException
+		public boolean equals(java.lang.Object)
+		public java.lang.String toString()
+		public native int hashCode()
+		public final native java.lang.Class getClass()
+		protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+		public final native void notify()
+		public final native void notifyAll()
+	Constructors: 
+		public java.lang.Object()
+	Fields: 
+Methods: 
+public int getVal3()
+public java.lang.String toString()
+Constructors: 
+public ClassD()
+public ClassD(int)
+Fields: 
+	ClassA
+	Declaring Class: ClassA
+	Immediate Superclass: java.lang.Object
+		java.lang.Object
+		Declaring Class: java.lang.Object
+		Methods: 
+				protected void finalize()Throw java.lang.Throwable
+				public final void wait(long, int)Throw java.lang.InterruptedException
+				public final void wait()Throw java.lang.InterruptedException
+				public final native void wait(long)Throw java.lang.InterruptedException
+				public boolean equals(java.lang.Object)
+				public java.lang.String toString()
+				public native int hashCode()
+				public final native java.lang.Class getClass()
+				protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+				public final native void notify()
+				public final native void notifyAll()
+		Constructors: 
+				public java.lang.Object()
+		Fields: 
+	Interfaces: java.io.Serializable
+		java.io.Serializable
+		Declaring Class: java.io.Serializable
+		Methods: 
+		Constructors: 
+		Fields: 
+	Interfaces: java.lang.Runnable
+		java.lang.Runnable
+		Declaring Class: java.lang.Runnable
+		Methods: 
+				public abstract void run()
+		Constructors: 
+		Fields: 
+	Methods: 
+		public void setVal(int)Throw java.lang.Exception
+		public int getVal()
+		private void printSomething()
+		public void run()
+		public java.lang.String toString()
+	Constructors: 
+		public ClassA()
+		public ClassA(int)
+	Fields: 
+		private int val = 17
+		private double val2 = 0.2
+		private boolean val3 = true
+private ClassA val = ClassA
+private static ClassA val2 = null
+private int val3 = 32
+private [LClassA; vallarray = [Length: 10] -> null, null, null, null, null, null, null, null, null, null, 
+======================================================
+======================================================
+Running Test: ClassD
+ClassD
+Declaring Class: ClassD
+Immediate Superclass: java.lang.Object
+	java.lang.Object
+	Declaring Class: java.lang.Object
+	Methods: 
+		protected void finalize()Throw java.lang.Throwable
+		public final void wait(long, int)Throw java.lang.InterruptedException
+		public final void wait()Throw java.lang.InterruptedException
+		public final native void wait(long)Throw java.lang.InterruptedException
+		public boolean equals(java.lang.Object)
+		public java.lang.String toString()
+		public native int hashCode()
+		public final native java.lang.Class getClass()
+		protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+		public final native void notify()
+		public final native void notifyAll()
+	Constructors: 
+		public java.lang.Object()
+	Fields: 
+Methods: 
+public int getVal3()
+public java.lang.String toString()
+Constructors: 
+public ClassD()
+public ClassD(int)
+Fields: 
+	ClassA
+	Declaring Class: ClassA
+	Immediate Superclass: java.lang.Object
+		java.lang.Object
+		Declaring Class: java.lang.Object
+		Methods: 
+				protected void finalize()Throw java.lang.Throwable
+				public final void wait(long, int)Throw java.lang.InterruptedException
+				public final void wait()Throw java.lang.InterruptedException
+				public final native void wait(long)Throw java.lang.InterruptedException
+				public boolean equals(java.lang.Object)
+				public java.lang.String toString()
+				public native int hashCode()
+				public final native java.lang.Class getClass()
+				protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+				public final native void notify()
+				public final native void notifyAll()
+		Constructors: 
+				public java.lang.Object()
+		Fields: 
+	Interfaces: java.io.Serializable
+		java.io.Serializable
+		Declaring Class: java.io.Serializable
+		Methods: 
+		Constructors: 
+		Fields: 
+	Interfaces: java.lang.Runnable
+		java.lang.Runnable
+		Declaring Class: java.lang.Runnable
+		Methods: 
+				public abstract void run()
+		Constructors: 
+		Fields: 
+	Methods: 
+		public void setVal(int)Throw java.lang.Exception
+		public int getVal()
+		private void printSomething()
+		public void run()
+		public java.lang.String toString()
+	Constructors: 
+		public ClassA()
+		public ClassA(int)
+	Fields: 
+		private int val = 17
+		private double val2 = 0.2
+		private boolean val3 = true
+private ClassA val = ClassA
+private static ClassA val2 = null
+private int val3 = 34
+private [LClassA; vallarray = [Length: 10] -> null, null, null, null, null, null, null, null, null, null, 
+======================================================
+======================================================
+Running Test: [LClassB;@63e31ee
+[LClassB;
+[Length: 12] -> null, null, null, null, null, null, null, null, null, null, null, null, 
+======================================================
+======================================================
+Running Test: [[LClassB;@68fb2c38
+[[LClassB;
+[Length: 12] -> [LClassB;@567d299b, [LClassB;@2eafffde, [LClassB;@59690aa4, [LClassB;@6842775d, [LClassB;@574caa3f, [LClassB;@64cee07, [LClassB;@1761e840, [LClassB;@6c629d6e, [LClassB;@5ecddf8f, [LClassB;@3f102e87, [LClassB;@27abe2cd, [LClassB;@5f5a92bb, 
+======================================================
+======================================================
+Running Test: Test String
+java.lang.String
+Declaring Class: java.lang.String
+Immediate Superclass: java.lang.Object
+	java.lang.Object
+	Declaring Class: java.lang.Object
+	Methods: 
+		protected void finalize()Throw java.lang.Throwable
+		public final void wait(long, int)Throw java.lang.InterruptedException
+		public final void wait()Throw java.lang.InterruptedException
+		public final native void wait(long)Throw java.lang.InterruptedException
+		public boolean equals(java.lang.Object)
+		public java.lang.String toString()
+		public native int hashCode()
+		public final native java.lang.Class getClass()
+		protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+		public final native void notify()
+		public final native void notifyAll()
+	Constructors: 
+		public java.lang.Object()
+	Fields: 
+Interfaces: java.io.Serializable
+	java.io.Serializable
+	Declaring Class: java.io.Serializable
+	Methods: 
+	Constructors: 
+	Fields: 
+Interfaces: java.lang.Comparable
+	java.lang.Comparable
+	Declaring Class: java.lang.Comparable
+	Methods: 
+		public abstract int compareTo(java.lang.Object)
+	Constructors: 
+	Fields: 
+Interfaces: java.lang.CharSequence
+	java.lang.CharSequence
+	Declaring Class: java.lang.CharSequence
+	Methods: 
+		public abstract int length()
+		public abstract java.lang.String toString()
+		public static int compare(java.lang.CharSequence, java.lang.CharSequence)
+		public abstract char charAt(int)
+		public boolean isEmpty()
+		public java.util.stream.IntStream codePoints()
+		public abstract java.lang.CharSequence subSequence(int, int)
+		public java.util.stream.IntStream chars()
+		private java.util.Spliterator$OfInt lambda$codePoints$1()
+		private java.util.Spliterator$OfInt lambda$chars$0()
+	Constructors: 
+	Fields: 
+Interfaces: java.lang.constant.Constable
+	java.lang.constant.Constable
+	Declaring Class: java.lang.constant.Constable
+	Methods: 
+		public abstract java.util.Optional describeConstable()
+	Constructors: 
+	Fields: 
+Interfaces: java.lang.constant.ConstantDesc
+	java.lang.constant.ConstantDesc
+	Declaring Class: java.lang.constant.ConstantDesc
+	Methods: 
+		public abstract java.lang.Object resolveConstantDesc(java.lang.invoke.MethodHandles$Lookup)Throw java.lang.ReflectiveOperationException
+	Constructors: 
+	Fields: 
+Methods: 
+ [B value()
+public boolean equals(java.lang.Object)
+public int length()
+public java.lang.String toString()
+public int hashCode()
+public void getChars(int, int, [C, int)
+public volatile int compareTo(java.lang.Object)
+public int compareTo(java.lang.String)
+public int indexOf(int, int)
+public int indexOf(java.lang.String)
+public int indexOf(java.lang.String, int)
+public int indexOf(int)
+static int indexOf([B, byte, int, java.lang.String, int)
+static void checkIndex(int, int)
+public static java.lang.String valueOf([C)
+public static java.lang.String valueOf(java.lang.Object)
+public static java.lang.String valueOf(long)
+public static java.lang.String valueOf([C, int, int)
+public static java.lang.String valueOf(int)
+public static java.lang.String valueOf(char)
+public static java.lang.String valueOf(double)
+public static java.lang.String valueOf(float)
+public static java.lang.String valueOf(boolean)
+ byte coder()
+private static java.lang.Void rangeCheck([C, int, int)
+static void checkBoundsOffCount(int, int, int)
+ boolean isLatin1()
+public char charAt(int)
+public int codePointAt(int)
+public int codePointBefore(int)
+public int codePointCount(int, int)
+public int offsetByCodePoints(int, int)
+static void checkBoundsBeginEnd(int, int, int)
+public [B getBytes(java.nio.charset.Charset)
+ void getBytes([B, int, int, byte, int)
+public [B getBytes()
+ void getBytes([B, int, byte)
+public [B getBytes(java.lang.String)Throw java.io.UnsupportedEncodingException
+public void getBytes(int, int, [B, int)
+public boolean contentEquals(java.lang.StringBuffer)
+public boolean contentEquals(java.lang.CharSequence)
+private boolean nonSyncContentEquals(java.lang.AbstractStringBuilder)
+public boolean regionMatches(int, java.lang.String, int, int)
+public boolean regionMatches(boolean, int, java.lang.String, int, int)
+public boolean startsWith(java.lang.String, int)
+public boolean startsWith(java.lang.String)
+public int lastIndexOf(java.lang.String)
+public int lastIndexOf(int)
+static int lastIndexOf([B, byte, int, java.lang.String, int)
+public int lastIndexOf(int, int)
+public int lastIndexOf(java.lang.String, int)
+public java.lang.String substring(int, int)
+public java.lang.String substring(int)
+public boolean isEmpty()
+public java.lang.String replace(char, char)
+public java.lang.String replace(java.lang.CharSequence, java.lang.CharSequence)
+public boolean matches(java.lang.String)
+public java.lang.String replaceFirst(java.lang.String, java.lang.String)
+public java.lang.String replaceAll(java.lang.String, java.lang.String)
+public [Ljava.lang.String; split(java.lang.String)
+public [Ljava.lang.String; split(java.lang.String, int)
+public java.lang.String toLowerCase()
+public java.lang.String toLowerCase(java.util.Locale)
+public java.lang.String toUpperCase(java.util.Locale)
+public java.lang.String toUpperCase()
+public java.lang.String trim()
+public java.lang.String strip()
+public java.lang.String stripLeading()
+public java.lang.String stripTrailing()
+private int indexOfNonWhitespace()
+public java.util.stream.Stream lines()
+public java.lang.String repeat(int)
+private int lastIndexOfNonWhitespace()
+private static int outdent(java.util.List)
+public boolean isBlank()
+public [C toCharArray()
+public static transient java.lang.String format(java.lang.String, [Ljava.lang.Object;)
+public static transient java.lang.String format(java.util.Locale, java.lang.String, [Ljava.lang.Object;)
+public java.lang.String resolveConstantDesc(java.lang.invoke.MethodHandles$Lookup)
+public volatile java.lang.Object resolveConstantDesc(java.lang.invoke.MethodHandles$Lookup)Throw java.lang.ReflectiveOperationException
+public java.util.stream.IntStream codePoints()
+public boolean equalsIgnoreCase(java.lang.String)
+public int compareToIgnoreCase(java.lang.String)
+public boolean endsWith(java.lang.String)
+public java.lang.CharSequence subSequence(int, int)
+public java.lang.String concat(java.lang.String)
+public boolean contains(java.lang.CharSequence)
+public static transient java.lang.String join(java.lang.CharSequence, [Ljava.lang.CharSequence;)
+public static java.lang.String join(java.lang.CharSequence, java.lang.Iterable)
+public java.lang.String indent(int)
+public java.lang.String stripIndent()
+public java.lang.String translateEscapes()
+public java.util.stream.IntStream chars()
+public java.lang.Object transform(java.util.function.Function)
+public transient java.lang.String formatted([Ljava.lang.Object;)
+public static java.lang.String copyValueOf([C, int, int)
+public static java.lang.String copyValueOf([C)
+public native java.lang.String intern()
+static void checkOffset(int, int)
+static java.lang.String valueOfCodePoint(int)
+public java.util.Optional describeConstable()
+private static java.lang.String lambda$stripIndent$3(int, java.lang.String)
+private static java.lang.String lambda$indent$2(int, java.lang.String)
+private static java.lang.String lambda$indent$1(java.lang.String)
+private static java.lang.String lambda$indent$0(java.lang.String, java.lang.String)
+Constructors: 
+public java.lang.String([B)
+public java.lang.String([B, int, int)
+public java.lang.String([B, java.nio.charset.Charset)
+public java.lang.String([B, java.lang.String)
+public java.lang.String([B, int, int, java.nio.charset.Charset)
+ java.lang.String([C, int, int, java.lang.Void)
+ java.lang.String(java.lang.AbstractStringBuilder, java.lang.Void)
+public java.lang.String(java.lang.StringBuilder)
+public java.lang.String(java.lang.StringBuffer)
+ java.lang.String([B, byte)
+public java.lang.String([C, int, int)
+public java.lang.String([C)
+public java.lang.String(java.lang.String)
+public java.lang.String()
+public java.lang.String([B, int, int, java.lang.String)
+public java.lang.String([B, int)
+public java.lang.String([B, int, int, int)
+public java.lang.String([I, int, int)
+Fields: 
+private final [B value = [Length: 11] -> 84, 101, 115, 116, 32, 83, 116, 114, 105, 110, 103, 
+private final byte coder = 0
+private int hash = 0
+private boolean hashIsZero = false
+private static final long serialVersionUID = -6849794470754667710
+static final boolean COMPACT_STRINGS = true
+private static final [Ljava.io.ObjectStreamField; serialPersistentFields = [Length: 0] -> 
+	java.lang.String$CaseInsensitiveComparator
+	Declaring Class: java.lang.String$CaseInsensitiveComparator
+	Immediate Superclass: java.lang.Object
+		java.lang.Object
+		Declaring Class: java.lang.Object
+		Methods: 
+				protected void finalize()Throw java.lang.Throwable
+				public final void wait(long, int)Throw java.lang.InterruptedException
+				public final void wait()Throw java.lang.InterruptedException
+				public final native void wait(long)Throw java.lang.InterruptedException
+				public boolean equals(java.lang.Object)
+				public java.lang.String toString()
+				public native int hashCode()
+				public final native java.lang.Class getClass()
+				protected native java.lang.Object clone()Throw java.lang.CloneNotSupportedException
+				public final native void notify()
+				public final native void notifyAll()
+		Constructors: 
+				public java.lang.Object()
+		Fields: 
+	Interfaces: java.util.Comparator
+		java.util.Comparator
+		Declaring Class: java.util.Comparator
+		Methods: 
+				public abstract boolean equals(java.lang.Object)
+				public abstract int compare(java.lang.Object, java.lang.Object)
+				public static java.util.Comparator reverseOrder()
+				public static java.util.Comparator comparing(java.util.function.Function)
+				public static java.util.Comparator comparing(java.util.function.Function, java.util.Comparator)
+				public java.util.Comparator thenComparing(java.util.Comparator)
+				public java.util.Comparator thenComparing(java.util.function.Function, java.util.Comparator)
+				public java.util.Comparator thenComparing(java.util.function.Function)
+				public static java.util.Comparator comparingInt(java.util.function.ToIntFunction)
+				public static java.util.Comparator comparingLong(java.util.function.ToLongFunction)
+				public static java.util.Comparator comparingDouble(java.util.function.ToDoubleFunction)
+				private static int lambda$comparingLong$6043328a$1(java.util.function.ToLongFunction, java.lang.Object, java.lang.Object)
+				private static int lambda$comparing$ea9a8b3a$1(java.util.Comparator, java.util.function.Function, java.lang.Object, java.lang.Object)
+				private static int lambda$comparing$77a9974f$1(java.util.function.Function, java.lang.Object, java.lang.Object)
+				private static int lambda$comparingDouble$8dcf42ea$1(java.util.function.ToDoubleFunction, java.lang.Object, java.lang.Object)
+				private int lambda$thenComparing$36697e65$1(java.util.Comparator, java.lang.Object, java.lang.Object)
+				private static int lambda$comparingInt$7b0bb60$1(java.util.function.ToIntFunction, java.lang.Object, java.lang.Object)
+				public java.util.Comparator reversed()
+				public java.util.Comparator thenComparingInt(java.util.function.ToIntFunction)
+				public java.util.Comparator thenComparingLong(java.util.function.ToLongFunction)
+				public java.util.Comparator thenComparingDouble(java.util.function.ToDoubleFunction)
+				public static java.util.Comparator naturalOrder()
+				public static java.util.Comparator nullsFirst(java.util.Comparator)
+				public static java.util.Comparator nullsLast(java.util.Comparator)
+				private static java.lang.Object $deserializeLambda$(java.lang.invoke.SerializedLambda)
+		Constructors: 
+		Fields: 
+	Interfaces: java.io.Serializable
+		java.io.Serializable
+		Declaring Class: java.io.Serializable
+		Methods: 
+		Constructors: 
+		Fields: 
+	Methods: 
+		public volatile int compare(java.lang.Object, java.lang.Object)
+		public int compare(java.lang.String, java.lang.String)
+		private java.lang.Object readResolve()
+	Constructors: 
+		private java.lang.String$CaseInsensitiveComparator()
+	Fields: 
+		private static final long serialVersionUID = 8575799808933029326
+public static final java.util.Comparator CASE_INSENSITIVE_ORDER = java.lang.String$CaseInsensitiveComparator@61baa894
+static final byte LATIN1 = 0
+static final byte UTF16 = 1
+======================================================
