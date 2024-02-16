@@ -1,0 +1,25 @@
+https://stackoverflow.com/questions/5840148/how-can-i-get-a-files-size-in-c
+https://stackoverflow.com/questions/9400756/ip-address-from-host-name-in-windows-socket-programming
+https://man7.org/linux/man-pages/man3/getaddrinfo.3.html
+
+Compiling in U of C
+
+1. Open Firefox
+2. Go to Setting
+3. Type proxy in search bar
+4. Click Settings
+5. In the HTTP PROXY, type "localhost" and in Port, type any port number "NUM" and Click OK
+6. Open CMD
+7. Go to the cpsc441a2.cpp file location
+8. Type "g++ -o run cpsc441a2.cpp
+9. Type ./run
+10. Type port number that you typed at procedure 5.
+11. Go to the https://pages.cpsc.ucalgary.ca/~jcleahy/
+12. Click for test
+13. Whenever it needs to test again we need to clear cache
+14. Go to FireFox setting 
+15. In the search bar, search cache
+16. Click Clear data and click Clear
+
+I've tried to change all the image in the website. But I don't know why the picture doesn't for Simple image..
+
