@@ -1,20 +1,20 @@
+Compiling and Running the Server
 
 g++ -o server cpsc441a3server.cpp
 ./server
 
+When you run the server, it will prompt you to enter the port numbers for both UDP and TCP.
+
+Compiling and Running the Client
+
 g++ -o client cpsc441a3client.cpp
 ./client
 
-run server first and then run client 
+After running the client, it will ask you to enter the server’s IP address and the port numbers for both UDP and TCP. If you are running the client on the same computer as the server, use the IP address 127.0.0.1.
 
-server needs to enter port number for udp and tcp 
-client needs to enter ip address and port number for udp and tcp 
+The port numbers for both the server and client must match; otherwise, they will not connect.
 
-ip address for same computer it will be 127.0.0.1 
-
-I have test that if we type different port number with server and client, it doesn't connect. It has to have same port number for both client and server. 
-
-if it's connect it will show 
+If the connection is successful, the client will display the following options:
 
 1. Split Text (Basic Encoding)
 2. Merge Text (Basic Encoding)
@@ -23,11 +23,19 @@ if it's connect it will show
 5. Quit
 Choose option:
 
-choose option 1, it will ask for user to enter string 
-enter any string then press enter then it will return vowels and consonants
+Option 1: Split Text (Basic Encoding)
+After selecting this option, the user will be asked to enter a string. The server will return the vowels and consonants.
 
-for option 2, user have to put the exact return value from option 1 for consonant and vowels in order to receive same merged text of option 1 string. Need to enter correct amount of space for consonant and vowel.
+Option 2: Merge Text (Basic Encoding)
+To use this option, the user must input the exact vowel and consonant strings returned from Option 1, including the correct number of spaces, to recreate the original string.
 
-option 3 works same as 4
+Option 3 and 4: Split and Merge Text (Advanced Encoding)
+These options function similarly to Options 1 and 2, but with a twist.
 
-option 4 will return no vowels for consonant and for vowel, there are numbers placed in consonant. In order to receive same value of string that we entered in option 3, user need to enter exactly same value to the consonant and vowel. Just enter same value from option 3 for vowel and consonant.
+In Option 3 (Split Advanced), the server returns no vowels for the consonant output, and the vowels are replaced by numbers in the consonant output.
+In Option 4 (Merge Advanced), the user needs to enter the exact values from Option 3 for both the consonant and vowel strings to recover the original string.
+
+
+
+
+
